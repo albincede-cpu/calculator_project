@@ -33,6 +33,6 @@ jobs:
          registry: judevops.azurecr.io
 
      - name: Create a new Docker image
-       uses: |
+       run: |
           docker build -t judevops.azurecr.io/albin_cederlof_calc:latest .
           docker push judevops.azurecr.io/albin_cederlof_calc:latest 
