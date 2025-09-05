@@ -34,5 +34,5 @@ jobs:
 
      - name: Create a new Docker image
        run: |
-         docker build -t judevops.azurecr.io/albin_cederlof_calc:latest .
+         docker build -t judevops.azurecr.io/albin_cederlof_calc:latest BE/
          docker push judevops.azurecr.io/albin_cederlof_calc:latest 
