@@ -32,7 +32,7 @@ jobs:
         shell: bash
 
       - name: Run tests
-        run: 
+        run: |
           export PYTHONPATH=.
           pytest --junit-xml=report.xml
 
