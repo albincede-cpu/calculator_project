@@ -33,7 +33,7 @@ jobs:
 
       - name: Run tests
         run: 
-          #export PYTHONPATH=$PYTHONPATH:BE
+          export PYTHONPATH=.
           pytest --junit-xml=report.xml
 
       - name: Upload junit report
