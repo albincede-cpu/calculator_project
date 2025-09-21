@@ -27,14 +27,15 @@ jobs:
           pip install playwright
           python -m playwright install
 
-      - name: Start REST API
-        run: |
-          python BE/calculator.py --rest &
-          sleep 3
-        shell: bash
+      #- name: Start REST API
+      #  run: |
+      #    python BE/calculator.py --rest &
+      #    sleep 3
+      #  shell: bash
 
       - name: start Calc Front and Backend
         run: |
+          docker compose -p webcalculator down || true
           docker compose -p webcalculator up -d
           sleep 10
 
