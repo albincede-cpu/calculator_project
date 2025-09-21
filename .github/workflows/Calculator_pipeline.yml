@@ -54,18 +54,6 @@ jobs:
           echo "Frontend ready"
 
 
-
-      - name: Save full frontend HTML
-        run: |
-          curl -s http://localhost:8080 > page.html
-          echo "Saved frontend HTML to page.html"
-
-      - name: Upload full frontend HTML
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-full-page
-          path: page.html
-
       - name: Run tests
         run: 
           python -m pytest --junit-xml=report.xml
