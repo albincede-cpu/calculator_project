@@ -43,8 +43,7 @@ jobs:
           sleep 10
 
       - name: Run tests
-        run: |
-          export PYTHONPATH="${{ github.workspace }}"
+        run: 
           pytest --junit-xml=report.xml
 
       - name: Upload junit report
