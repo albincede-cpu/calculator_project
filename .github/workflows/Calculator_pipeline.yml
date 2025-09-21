@@ -44,7 +44,7 @@ jobs:
 
       - name: Run tests
         run: |
-          export PYTHONPATH=$PWD:$(pwd)/BE
+          export PYTHONPATH="${{ github.workspace }}
           python -m pytest --junit-xml=report.xml
           
 
