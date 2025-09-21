@@ -43,8 +43,9 @@ jobs:
           sleep 10
 
       - name: Run tests
-        run: 
+        run: |
           pytest --junit-xml=report.xml
+          shell: bash
 
       - name: Upload junit report
         if: always()
