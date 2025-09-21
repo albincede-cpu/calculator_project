@@ -24,6 +24,8 @@ jobs:
         run: |
           pip install -r BE/requirements.txt
           pip install pytest requests openapi-python-client assertpy
+          pip install playwright
+          python -m playwright install
 
       - name: Start REST API
         run: |
@@ -31,12 +33,18 @@ jobs:
           sleep 3
         shell: bash
 
+      - name: start Calc Front and Backend
+        run: |
+          docker compose -p webcalculator up -d
+          sleep 10
+
       - name: Run tests
         run: |
           export PYTHONPATH=.
           pytest --junit-xml=report.xml
 
       - name: Upload junit report
+        if: always()
         uses: mikepenz/action-junit-report@v5
         with:
           report_paths: report.xml
