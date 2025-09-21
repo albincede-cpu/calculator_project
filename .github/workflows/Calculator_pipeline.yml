@@ -51,11 +51,11 @@ jobs:
           echo "Frontend ready"
 
 
-      - name: Debug frontend HTML
-        run: |
-          curl -s http://localhost:8080 > page.html
-          echo "===== First 50 lines of frontend HTML ====="
-          head -n 50 page.html
+      - name: Upload full frontend HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-full-page
+          path: page.html
 
 
       - name: Run tests
