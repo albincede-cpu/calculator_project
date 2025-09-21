@@ -42,7 +42,7 @@ jobs:
           docker compose -p webcalculator up -d
           docker compose -p webcalculator ps
           echo "Waiting for frontend to start..."
-          while ! curl -s http://localhost:5000 >/dev/null; do sleep 2; done
+          while ! curl -s http://localhost:8080 >/dev/null; do sleep 2; done
           echo "Frontend ready
 
 
