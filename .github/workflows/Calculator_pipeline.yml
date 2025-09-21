@@ -41,9 +41,21 @@ jobs:
           docker compose -p webcalculator down || true
           docker compose -p webcalculator up -d
           docker compose -p webcalculator ps
+
+          echo "Waiting for backend to start..."
+          while ! curl -s http://localhost:5000/health >/dev/null; do sleep 2; done
+          echo "Backend ready"
+
           echo "Waiting for frontend to start..."
           while ! curl -s http://localhost:8080 >/dev/null; do sleep 2; done
           echo "Frontend ready"
+
+
+      - name: Debug frontend HTML
+        run: |
+          curl -s http://localhost:8080 > page.html
+          echo "===== First 50 lines of frontend HTML ====="
+          head -n 50 page.html
 
 
       - name: Run tests
