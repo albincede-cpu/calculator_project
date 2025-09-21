@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}/test
 
 
     steps:
@@ -42,8 +44,9 @@ jobs:
 
       - name: Run tests
         run: |
+          export PYTHONPATH=$PWD
           python -m pytest --junit-xml=report.xml
-          shell: bash
+          
 
       - name: Upload junit report
         if: always()
