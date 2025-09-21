@@ -40,7 +40,9 @@ jobs:
         run: |
           docker compose -p webcalculator down || true
           docker compose -p webcalculator up -d
-          sleep 10
+          docker compose -p webcalculator ps
+
+          sleep 15
 
       - name: Run tests
         run: 
