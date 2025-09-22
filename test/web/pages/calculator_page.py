@@ -5,5 +5,5 @@ class CalculatorPage(PageBase):
     def __init__(self, page: Page) -> None:
         super().__init__(page, 
         elements={
-            "username":  "#username"
+            "username":  "#user-name"
         })

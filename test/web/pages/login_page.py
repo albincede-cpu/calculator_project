@@ -8,6 +8,7 @@ class LoginPage(PageBase):
             "username":  "#username",
             "password": "#password",
             "login": "#login",
+            "logout-button": "#logout-button",
         })
 
 
@@ -16,3 +17,4 @@ class LoginPage(PageBase):
         self.element("username").fill(username)
         self.element("password").fill(password)
         self.element("login").click()
+        self.element("logout-button").click()

@@ -17,6 +17,7 @@ class Methods_page(PageBase):
             "username":  "#username",
             "password": "#password",
             "login": "#login",
+            "logout-button": "#logout-button",
         })
 
     def methods(self, username="admin", password="test1234"):
@@ -43,4 +44,5 @@ class Methods_page(PageBase):
         self.element("key-divide").click()
         self.element("key-2").click()
         self.element("key-equals").click()
+        self.element("logout-button").click()
         

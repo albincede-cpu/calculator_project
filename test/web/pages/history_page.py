@@ -12,7 +12,8 @@ class HistoryPage(PageBase):
             "key-2": "#key-2",
             "key-add": "#key-add",
             "key-equals": "#key-equals",
-        })
+            "logout-button": "#logout-button",
+        })  
 
 
 
@@ -28,4 +29,5 @@ class HistoryPage(PageBase):
         self.element("key-equals").click()
         #History
         self.element("toggle-button").click()
+        self.element("logout-button").click()        
         

@@ -1,8 +1,5 @@
 name: CI
-permissions:
-    contents: read
-    checks: write
-    id-token: write
+
 on:
   push:
     branches: ["main"]
@@ -40,18 +37,8 @@ jobs:
       #  shell: bash
 
       - name: start Calc Front and Backend
-        run: |
-          docker compose -p webcalculator down || true
+        run: 
           docker compose -p webcalculator up -d
-          docker compose -p webcalculator ps
-
-          echo "Waiting for backend to start..."
-          while ! curl -s http://localhost:5000/health >/dev/null; do sleep 2; done
-          echo "Backend ready"
-
-          echo "Waiting for frontend to start..."
-          while ! curl -s http://localhost:8080 >/dev/null; do sleep 2; done
-          echo "Frontend ready"
 
 
       - name: Run tests
